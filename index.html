@@ -6,12 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Володин Мебель - рассчитать стоимость дизайнерской кухни в Москве и области</title>
   <link rel="shortcut icon" href="img/favicon.png">
+  <link rel="stylesheet" href="css/swiper.css">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <header class="header">
+    <div class="header__container">
+      <div class="header__swiper">
+        <div class="swiper-wrapper">
+          <div class="header__swiper-slide swiper-slide"><img src="img/slider-1.webp" class="header__swiper-img"></div>
+          <div class="header__swiper-slide swiper-slide"><img src="img/slider-2_m.jpg" class="header__swiper-img"></div>
+          <div class="header__swiper-slide swiper-slide"><img src="img/slider-3_m.jpg" class="header__swiper-img"></div>
+          <div class="header__swiper-slide swiper-slide"><img src="img/slider-4_m.jpg" class="header__swiper-img"></div>
+          <div class="header__swiper-slide swiper-slide"><img src="img/slider-5_m.jpg" class="header__swiper-img"></div>
+        </div>
+        <div class="header__swiper-button-prev swiper-button-prev">
+        </div>
+        <div class="header__swiper-button-next swiper-button-next">
+        </div>
+      </div>
+      <div class="header__logo-container">
+        <img src="img/logo.png" alt="header__logo-container" class="header__logo">
+      </div>
+    </div>
     <div class="header__block-text">
       <h1 class="header__title">Рассчитайте стоимость вашей дизайнерской кухни он-лайн</h1>
       <p class="header__subtitle">за 1 минуту</p>
@@ -47,8 +66,35 @@
       </div>
       <p class="header__text">Рассчитайте стоимость кухни и зафиксируйте оптовую цену на VIP-материалы <span
           class="header__squares-text-gold">до 17 июня</span></p>
+      <a href="#" class="header__count-link">
+        <span class="header__count-link-text">РАССЧИТАТЬ СТОИМОСТЬ </span>
+        <span class="header__count-black">он-лайн калькулятор</span>
+      </a>
+      <div class="hader__and">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="header__and-plus">
+          <path d="M417-417H166v-126h251v-251h126v251h251v126H543v251H417v-251Z" />
+        </svg>
+        <p class="header__and-title">
+          вместе с расчетом вы получите подарок:
+        </p>
+        <p class="header__and-text">
+          Католог “30 топовых трендов дизайна кухни 2024 - 2025 года” в стиле, который вам подходит
+        </p>
+        <img src="img/book.webp" alt="Книга" class="header__and-img">
+      </div>
     </div>
   </header>
+  <main class="content">
+    <section class="lock lock__animation">
+      <div class="lock__container">
+        <p class="lock__text">
+          Расчет стоимости вашей кухни и подарки
+        </p>
+      </div>
+    </section>
+  </main>
+  <script src="scripts/swiper.js"></script>
+  <script src="scripts/main.js"></script>
 </body>
 
 </html>
