@@ -7,7 +7,7 @@
 //   },
 // });
 
-const headerSwiper = new Swiper('.header__swiper', {
+const headerSwiper = new Swiper(".header__swiper", {
   loop: true,
 
   autoplay: {
@@ -15,7 +15,18 @@ const headerSwiper = new Swiper('.header__swiper', {
   },
 
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  }
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+const workSwiper = new Swiper(".work__swiper", {
+  loop: true,
+  slidesPerView: 3,
+  speed: 800,
+  centeredSlides: true,
+
+  autoplay: {
+    delay: 2500,
+  },
 });

@@ -16,11 +16,11 @@
     <div class="header__container">
       <div class="header__swiper">
         <div class="swiper-wrapper">
-          <div class="header__swiper-slide swiper-slide"><img src="img/slider-1.webp" class="header__swiper-img"></div>
-          <div class="header__swiper-slide swiper-slide"><img src="img/slider-2_m.jpg" class="header__swiper-img"></div>
-          <div class="header__swiper-slide swiper-slide"><img src="img/slider-3_m.jpg" class="header__swiper-img"></div>
-          <div class="header__swiper-slide swiper-slide"><img src="img/slider-4_m.jpg" class="header__swiper-img"></div>
-          <div class="header__swiper-slide swiper-slide"><img src="img/slider-5_m.jpg" class="header__swiper-img"></div>
+          <div class="header__swiper-slide swiper-slide"><img src="img/slider-1.webp" alt="Фон" class="header__swiper-img"></div>
+          <div class="header__swiper-slide swiper-slide"><img src="img/slider-2_m.jpg" alt="Фон" class="header__swiper-img"></div>
+          <div class="header__swiper-slide swiper-slide"><img src="img/slider-3_m.jpg" alt="Фон" class="header__swiper-img"></div>
+          <div class="header__swiper-slide swiper-slide"><img src="img/slider-4_m.jpg" alt="Фон" class="header__swiper-img"></div>
+          <div class="header__swiper-slide swiper-slide"><img src="img/slider-5_m.jpg" alt="Фон" class="header__swiper-img"></div>
         </div>
         <div class="header__swiper-button-prev swiper-button-prev">
         </div>
@@ -87,12 +87,12 @@
   <main class="content">
     <section class="progress"></section>
     <section class="subquestions">
-      <h2 class="subquestions__title">Расчет стоимости <span class="subquestions__title-gold">сформирован</span></h2>
+      <h2 class="subquestions__title">Расчет стоимости <span class="gold-text">сформирован</span></h2>
       <p class="subquestions__subtitle">Он откроется на этой странице сразу после ввода вашего номера телефона</p>
       <div class="subquestions__list">
         <p class="subquestions__list-title">А так же вы получите:</p>
         <p class="subquestions__list-item">Каталог “30 топовых трендов дизайна кухни 2021-2022 года” в <span
-            class="subquestions__list-item-gold">классическом </span>стиле</p>
+            class="gold-text">классическом </span>стиле</p>
         <p class="subquestions__list-item">2 уникальных дизайн проекта</p>
         <p class="subquestions__list-item">Скидку на VIP-материалы</p>
         <div class="subquestions__phone">
@@ -104,7 +104,7 @@
         <h3 class="subquestions__form-title">Куда вам удобнее их получить?</h3>
         <div class="subquestions__form-container">
           <div class="subquestions__form-variant">
-            <input type="radio" class="subquestions__form-radio" name="subquestions-contacts" value="whatsapp">
+            <input type="radio" class="subquestions__form-radio" name="contacts" value="whatsapp">
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"
               class="subquestions__form-whatsapp">
               <path
@@ -125,14 +125,14 @@
               <path
                 d="M11.8139 6.99242C10.8581 8.02129 9.29155 9.99331 8.62778 10.8507C8.49502 10.7078 7.99055 10.3363 7.03472 9.99331C5.83993 9.56461 5.83993 10.422 6.23819 10.8507C6.63646 11.2794 8.22951 13.8516 8.62778 14.709C8.94639 15.3949 9.29155 14.709 9.4243 14.2803C9.95532 12.9942 11.2563 10.0791 12.2122 8.70721C13.4069 6.99242 15 5.70632 15 5.27762C14.6017 4.42022 13.0087 5.70632 11.8139 6.99242Z">
               </path>
-              <linearGradient id="viber" x2="0" y2="1">
+              <linearGradient x2="0" y2="1">
                 <stop offset="0%" stop-color="#8F5DB7"></stop>
                 <stop offset="100%" stop-color="#59267C"></stop>
               </linearGradient>
             </svg>
           </div>
           <div class="subquestions__form-variant">
-            <input type="radio" class="subquestions__form-radio" name="subquestions-contacts" value="telegram">
+            <input type="radio" class="subquestions__form-radio" name="contacts" value="telegram">
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"
               class="subquestions__form-telegram">
               <path
@@ -177,13 +177,13 @@
             </svg>
           </div>
         </div>
-        <input type="text" name="subquestions-name" class="subquestions__input" placeholder="Введите ваше имя">
-        <input type="tel" name="subquestions-tel" class="subquestions__input" placeholder="Введите ваш номер телефона">
-        <label class="subquestions__agree">
-          <input type="checkbox" class="subquestions__agree-checkbox" name="subquestions__agree">
-          <span class="subquestions__agree-text">Я даю согласие на обработку моих персональных данных</span>
+        <input type="text" name="name" class="subquestions__input" placeholder="Введите ваше имя">
+        <input type="tel" name="tel" class="subquestions__input" placeholder="Введите ваш номер телефона">
+        <label class="agree">
+          <input type="checkbox" class="agree-checkbox" name="agree">
+          <span class="agree-text">Я даю согласие на обработку моих персональных данных</span>
         </label>
-        <button type="submit" class="subquestions__submit">Получить расчет и подарки</button>
+        <button type="submit" class="submit submit-active">Получить расчет и подарки</button>
       </form>
     </section>
     <section class="lock lock__animation">
@@ -204,6 +204,121 @@
         <p class="thanks__text-subtitle">Система сделала примерный расчет стоимости вашей кухни по параметрам: </p>
       </div>
     </section>
+    <section class="results">
+      <div class="container">
+        <ul class="results__item">
+          <li class="results__point">Планировка - <span class="gold-text">Не знаю, нужна констультация</span>
+          </li>
+          <li class="results__point">Стиль - <span class="gold-text">Неоклассика</span></li>
+          <li class="results__point">Длина гарнитуры - <span class="gold-text">Более 9 метров</span></li>
+        </ul>
+        <div class="results__item">
+          <h4 class="results__title">Примерная стоимость<br>вашей дизайнерской кухни<br>от <span class="gold-text">40
+              тыс. ₽ за метр погонный.</span></h4>
+          <p class="results__subtitile">расчет выполнен для кухни длиной 5м</p>
+          <p class="results__text-cost">Точную стоимость мы рассчитаем по результатам замера, детального подбора
+            материалов и окончательной комплектации</p>
+        </div>
+        <div class="results__item">
+          <h4 class="results__title">Рассчитаем смету в 3-х вариантах, чтобы вам было удобно выбирать</h4>
+          <div class="results__block">
+            <div class="results__img-container"><img src="img/consult.webp" alt="Консультант" class="results__img">
+            </div>
+            <span class="results__text-recall">Наш консультант перезвонит вам в течение 15 минут в рабочее время, чтобы
+              рассказать о возможностях корректировки стоимости</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="present">
+      <div class="container">
+        <h2 class="present__title">А пока ждете звонка, забирайте подарки!</h2>
+        <div class="present__block">
+          <ul class="present__list">
+            <li class="present__list-item">
+              <h3 class="present__list-title">Каталог “30 топовых трендов дизайна кухни 2021-2022 года” в <span
+                  class="gold-text">классическом </span>стиле</h3>
+              <a href="files/classic.pdf" class="present__link" target="_blank">Скачать</a>
+            </li>
+            <li class="present__list-item">
+              <h3 class="present__list-title">2 уникальных дизайн проекта<br>в <span class="gold-text">классическом
+                </span>стиле</h3>
+              <p class="present__text">Учитывающих все ваши желания и особенности планировки</p>
+            </li>
+            <li class="present__list-item">
+              <h3 class="present__list-title">Скидку на VIP-материалы</h3>
+              <p class="present__text">Вы можете сэкономить до 100 тыс. ₽</p>
+              <strong class="present__text-strong">ПРИ ЗАКАЗЕ ДО <span class="gold-text">22 июня</span></strong>
+            </li>
+          </ul>
+          <form class="present__form">
+            <h4 class="present__form-title">Эти подарки закреплены<br>за вашим номером телефона</h4>
+            <p class="present__form-subtitle">Если вы указали номер неправильно, можете изменить его сейчас</p>
+            <input type="text" name="name" class="present__form-input">
+            <input type="tel" name="tel" class="present__form-input" placeholder="Введите ваш номер телефона">
+            <label class="agree">
+              <input type="checkbox" class="agree-checkbox" name="agree">
+              <span class="agree-text">Я даю согласие на обработку моих персональных данных</span>
+            </label>
+            <button type="submit" class="submit" disabled>Именить номер</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="banner">
+      <p class="banner__text">Нам важно, чтобы вы получили именно такую кухню, о которой мечтали</p>
+    </section>
+    <section class="exit">
+      <div class="container">
+        <h2 class="exit__title">Чтобы составить подробную смету, нужен <span class="gold-line">выезд замерщика
+          </span>и <span class="gold-line">консультация дизайнера</span></h2>
+        <div class="exit__block">
+          <div class="exit__list">
+            <h3 class="exit__list-title">В результате вы получите:</h3>
+            <p class="exit__list-item"><strong class="exit__list-strong">Точные замеры помещения, </strong>по которым
+              дизайнер сделает <strong class="exit__list-strong">2 варианта дизайна </strong>и <strong
+                class="exit__list-strong">3D визуализации </strong>вашей новой кухни</p>
+            <p class="exit__list-item"><strong class="exit__list-strong">Демонстрацию образцов фасадов.
+              </strong>Увидите реальный цвет и ощутите текстуру материала</p>
+            <p class="exit__list-item">Подбор цветов, материалов и фурнитуры <strong class="exit__list-strong">под ваш
+                бюджет в 3-х вариантах</strong></p>
+            <p class="exit__list-item"><strong class="exit__list-strong">Готовые чертежи </strong>расположения розеток,
+              плиты, источников света</p>
+            <p class="exit__list-item"><strong class="exit__list-strong">Рекомендации по скрытию </strong>систем газо-
+              и водоснабжения, вентиляции</p>
+            <p class="exit__list-item"><strong class="exit__list-strong">Расчет точной сметы, </strong>сроков
+              изготовления, <strong class="exit__list-strong">важные детали по установке и монтажу </strong>именно вашей
+              кухни</p>
+          </div>
+          <form class="exit__form">
+            <p class="exit__form-text"><strong class="exit__form-strong">Проверьте номер телефона </strong>и укажите удобное
+              время для звонка. Консультант перезвонит для согласования даты и времени выезда дизайнера</p>
+            <input type="text" name="name" class="exit__form-input">
+            <input type="tel" name="tel" class="exit__form-input" placeholder="Введите ваш номер телефона">
+            <input type="text" name="time" class="exit__form-input" placeholder="Укажите удомное время для звонка">
+            <label class="agree">
+              <input type="checkbox" class="agree-checkbox" name="agree">
+              <span class="agree-text">Я даю согласие на обработку моих персональных данных</span>
+            </label>
+            <button type="submit" class="submit" disabled>ЗАПИСАТЬСЯ</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="work">
+      <div class="container">
+        <h5 class="work__title">Посмотри нас в деле</h5>
+        <div class="work__swiper">
+          <div class="swiper-wrapper work__swiper-wrapper">
+            <div class="swiper-slide work__swiper-slide"><img class="work__swiper-img" src="img/1_s.jpg" alt="Работа"></div>
+            <div class="swiper-slide work__swiper-slide"><img class="work__swiper-img" src="img/2_s.jpg" alt="Работа"></div>
+            <div class="swiper-slide work__swiper-slide"><img class="work__swiper-img" src="img/3_s.jpg" alt="Работа"></div>
+            <div class="swiper-slide work__swiper-slide"><img class="work__swiper-img" src="img/4_s.jpg" alt="Работа"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="example"></section>
   </main>
   <script src="scripts/swiper.js"></script>
   <script src="scripts/main.js"></script>
