@@ -428,3 +428,7 @@ eForm.querySelector(".agree-checkbox").addEventListener("change", () => {
     eForm.querySelector(".submit").disabled = true
   }
 })
+
+Fancybox.bind("[data-fancybox]", {
+  
+});

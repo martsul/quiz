@@ -8,11 +8,17 @@
   <link rel="shortcut icon" href="img/favicon.png">
   <link rel="stylesheet" href="css/swiper.css">
   <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/fancybox.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <header class="header">
+    <div class="header__menu">
+      <img src="img/logo.png" alt="Логотип" class="menu__logo">
+      <button type="button" class="menu__btn">Быстрая консультация</button>
+      <a href="tel:+79660313176" class="menu__link">Позвонить</a>
+    </div>
     <div class="header__container">
       <div class="header__swiper">
         <div class="swiper-wrapper">
@@ -76,7 +82,7 @@
       </div>
       <p class="header__text">Рассчитайте стоимость кухни и зафиксируйте оптовую цену на VIP-материалы <span
           class="header__squares-text-gold">до 17 июня</span></p>
-      <a href="#" class="header__count-link">
+      <a href="#cost" class="header__count-link">
         <span class="header__count-link-text">РАССЧИТАТЬ СТОИМОСТЬ </span>
         <span class="header__count-black">он-лайн калькулятор</span>
       </a>
@@ -106,7 +112,7 @@
         </div>
       </div>
     </section>
-    <section class="subquestions">
+    <section class="subquestions" id="cost">
       <div class="container">
         <form class="subquestions__form">
           <div class="qustions">
@@ -159,7 +165,7 @@
                   <label class="qustions__card">
                     <input type="radio" name="style" value="Классика" class="qustions__card-radio">
                     <span class="qustions__img-container-full">
-                      <a href="#" class="qustions__card-loop">
+                      <a href="img/Классика.jpg" data-fancybox data-caption="Single image" class="qustions__card-loop">
                         <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
                           class="qustions__card-loop-img">
                           <circle cx="10" cy="10" r="10" fill="#434242" />
@@ -174,7 +180,8 @@
                   <label class="qustions__card">
                     <input type="radio" name="style" value="Неоклассика" class="qustions__card-radio">
                     <span class="qustions__img-container-full">
-                      <a href="#" class="qustions__card-loop">
+                      <a href="img/Неоклассика.jpg" data-fancybox data-caption="Single image"
+                        class="qustions__card-loop">
                         <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
                           class="qustions__card-loop-img">
                           <circle cx="10" cy="10" r="10" fill="#434242" />
@@ -189,7 +196,8 @@
                   <label class="qustions__card">
                     <input type="radio" name="style" value="Скандинавский" class="qustions__card-radio">
                     <span class="qustions__img-container-full">
-                      <a href="#" class="qustions__card-loop">
+                      <a href="img/Скандинавский.jpg" data-fancybox data-caption="Single image"
+                        class="qustions__card-loop">
                         <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
                           class="qustions__card-loop-img">
                           <circle cx="10" cy="10" r="10" fill="#434242" />
@@ -204,7 +212,8 @@
                   <label class="qustions__card">
                     <input type="radio" name="style" value="Современный" class="qustions__card-radio">
                     <span class="qustions__img-container-full">
-                      <a href="#" class="qustions__card-loop">
+                      <a href="img/Современный.jpg" data-fancybox data-caption="Single image"
+                        class="qustions__card-loop">
                         <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
                           class="qustions__card-loop-img">
                           <circle cx="10" cy="10" r="10" fill="#434242" />
@@ -221,7 +230,7 @@
                   <label class="qustions__card">
                     <input type="radio" name="cover" value="Эмаль" class="qustions__card-radio">
                     <span class="qustions__img-container-full">
-                      <a href="#" class="qustions__card-loop">
+                      <a href="img/Эмаль.jpg" data-fancybox data-caption="Single image" class="qustions__card-loop">
                         <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
                           class="qustions__card-loop-img">
                           <circle cx="10" cy="10" r="10" fill="#434242" />
@@ -236,7 +245,7 @@
                   <label class="qustions__card">
                     <input type="radio" name="cover" value="Шпон" class="qustions__card-radio">
                     <span class="qustions__img-container-full">
-                      <a href="#" class="qustions__card-loop">
+                      <a href="img/Шпон.jpg" data-fancybox data-caption="Single image" class="qustions__card-loop">
                         <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
                           class="qustions__card-loop-img">
                           <circle cx="10" cy="10" r="10" fill="#434242" />
@@ -251,7 +260,7 @@
                   <label class="qustions__card">
                     <input type="radio" name="cover" value="Пластик" class="qustions__card-radio">
                     <span class="qustions__img-container-full">
-                      <a href="#" class="qustions__card-loop">
+                      <a href="img/Пластик.jpg" data-fancybox data-caption="Single image" class="qustions__card-loop">
                         <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
                           class="qustions__card-loop-img">
                           <circle cx="10" cy="10" r="10" fill="#434242" />
@@ -266,7 +275,7 @@
                   <label class="qustions__card">
                     <input type="radio" name="cover" value="Мдф" class="qustions__card-radio">
                     <span class="qustions__img-container-full">
-                      <a href="#" class="qustions__card-loop">
+                      <a href="img/Мдф.jpg" data-fancybox data-caption="Single image" class="qustions__card-loop">
                         <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
                           class="qustions__card-loop-img">
                           <circle cx="10" cy="10" r="10" fill="#434242" />
@@ -295,9 +304,12 @@
                 <div class="qustions__table-header">
                   <h4 class="qustions__table-title">Рассчитываем стоимость кухни:</h4>
                   <p class="qustions__table-parameter">Планировка - <span class="gold-text"></span></p>
-                  <p class="qustions__table-parameter qustions__table-parameter-off">Стиль - <span class="gold-text"></span></p>
-                  <p class="qustions__table-parameter qustions__table-parameter-off">Материал - <span class="gold-text"></span></p>
-                  <p class="qustions__table-parameter qustions__table-parameter-off">Длина - <span class="gold-text"></span></p>
+                  <p class="qustions__table-parameter qustions__table-parameter-off">Стиль - <span
+                      class="gold-text"></span></p>
+                  <p class="qustions__table-parameter qustions__table-parameter-off">Материал - <span
+                      class="gold-text"></span></p>
+                  <p class="qustions__table-parameter qustions__table-parameter-off">Длина - <span
+                      class="gold-text"></span></p>
                 </div>
                 <div class="qustions__table-main">
                   <p class="qustions__table-main-title">По итогам теста вы получаете: </p>
@@ -413,7 +425,7 @@
                 <input type="checkbox" class="agree-checkbox" name="agree">
                 <span class="agree-text">Я даю согласие на обработку моих персональных данных</span>
               </label>
-              <button type="submit" class="submit" disabled="true">Получить расчет и подарки</button>
+              <button type="submit" class="submit" disabled>Получить расчет и подарки</button>
             </div>
           </div>
         </form>
@@ -544,14 +556,18 @@
         <h5 class="work__title">Посмотри нас в деле</h5>
         <div class="work__swiper">
           <div class="swiper-wrapper work__swiper-wrapper">
-            <div class="swiper-slide work__swiper-slide"><img class="work__swiper-img" src="img/1_s.jpg" alt="Работа">
-            </div>
-            <div class="swiper-slide work__swiper-slide"><img class="work__swiper-img" src="img/2_s.jpg" alt="Работа">
-            </div>
-            <div class="swiper-slide work__swiper-slide"><img class="work__swiper-img" src="img/3_s.jpg" alt="Работа">
-            </div>
-            <div class="swiper-slide work__swiper-slide"><img class="work__swiper-img" src="img/4_s.jpg" alt="Работа">
-            </div>
+            <a href="img/1_s.jpg" data-fancybox data-caption="Single image" class="swiper-slide work__swiper-slide"><img
+                class="work__swiper-img" src="img/1_s.jpg" alt="Работа">
+            </a>
+            <a href="img/2_s.jpg" data-fancybox data-caption="Single image" class="swiper-slide work__swiper-slide"><img
+                class="work__swiper-img" src="img/2_s.jpg" alt="Работа">
+            </a>
+            <a href="img/3_s.jpg" data-fancybox data-caption="Single image" class="swiper-slide work__swiper-slide"><img
+                class="work__swiper-img" src="img/3_s.jpg" alt="Работа">
+            </a>
+            <a href="img/4_s.jpg" data-fancybox data-caption="Single image" class="swiper-slide work__swiper-slide"><img
+                class="work__swiper-img" src="img/4_s.jpg" alt="Работа">
+            </a>
           </div>
         </div>
       </div>
@@ -560,7 +576,8 @@
       <div class="container">
         <h2 class="example__title">Кухни изготавливаем на собственном производстве площадью <span class="gold-line">1000
             кв.м</span></h2>
-        <img src="img/video_bg.jpg" alt="Видео" class="example__img">
+        <a href="https://www.youtube.com/embed/PVUqXVMQ1eM" data-fancybox data-caption="Single image"><img
+            src="img/video_bg.jpg" alt="Видео" class="example__img"></a>
         <p class="example__text">Вашу кухню будут делать мастера с опытом работы от 10 лет</p>
       </div>
     </section>
@@ -599,7 +616,8 @@
         <div class="feedback__swiper">
           <div class="swiper-wrapper feedback__swiper-wrapper">
             <div class="feedback__swiper-slide swiper-slide">
-              <img src="img/res_video_1.jpg" alt="Видео" class="feedback__img">
+              <a href="https://www.youtube.com/embed/PVUqXVMQ1eM" data-fancybox data-caption="Single image"><img
+                  src="img/res_video_1.jpg" alt="Видео" class="feedback__img"></a>
               <div class="feedback__block">
                 <div class="feedback__name-block">
                   <p class="feedback__name">Сергей Никоненко</p>
@@ -613,7 +631,7 @@
               </div>
             </div>
             <div class="feedback__swiper-slide swiper-slide">
-              <img src="img/res_video_2.jpg" alt="Видео" class="feedback__img">
+              <a href="https://www.youtube.com/watch?v=zipUb6qjOio" data-fancybox data-caption="Single image"><img src="img/res_video_2.jpg" alt="Видео" class="feedback__img"></a>
               <div class="feedback__block">
                 <div class="feedback__name-block">
                   <p class="feedback__name">Грета Хурцилава</p>
@@ -627,7 +645,7 @@
               </div>
             </div>
             <div class="feedback__swiper-slide swiper-slide">
-              <img src="img/res_video_3.jpg" alt="Видео" class="feedback__img">
+              <a href="https://youtu.be/4y4Th1RaWf4" data-fancybox data-caption="Single image"><img src="img/res_video_3.jpg" alt="Видео" class="feedback__img"></a>
               <div class="feedback__block">
                 <div class="feedback__name-block">
                   <p class="feedback__name">Элина</p>
@@ -641,7 +659,7 @@
               </div>
             </div>
             <div class="feedback__swiper-slide swiper-slide">
-              <img src="img/res_video_4.jpg" alt="Видео" class="feedback__img">
+              <a href="https://www.youtube.com/watch?v=vvVnaFoFLwE" data-fancybox data-caption="Single image"><img src="img/res_video_4.jpg" alt="Видео" class="feedback__img"></a>
               <div class="feedback__block">
                 <div class="feedback__name-block">
                   <p class="feedback__name">Светлана</p>
@@ -655,7 +673,7 @@
               </div>
             </div>
             <div class="feedback__swiper-slide swiper-slide">
-              <img src="img/res_video_5.jpg" alt="Видео" class="feedback__img">
+              <a href="https://www.youtube.com/watch?v=CEIaN8UqqBc" data-fancybox data-caption="Single image"><img src="img/res_video_5.jpg" alt="Видео" class="feedback__img"></a>
               <div class="feedback__block">
                 <div class="feedback__name-block">
                   <p class="feedback__name">Эльвира Галкина</p>
@@ -746,6 +764,8 @@
       <a href="https://quiz24.ru/" class="footer__link footer__link-end" target="_blank">Сделано Quiz24</a>
     </div>
   </footer>
+
+  <script src="scripts/fancybox.umd.js"></script>
   <script src="scripts/swiper.js"></script>
   <script src="scripts/main.js"></script>
 </body>
