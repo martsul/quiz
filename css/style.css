@@ -2126,6 +2126,30 @@ input[type="radio"], input[type="checkbox"] {
   height: 17px;
 }
 
+.pop-on {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 15;
+  background: #000000da;
+  padding: 6px;
+}
+
+.pop-on__form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  position: relative;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 25px;
+}
+
 @media (max-width: 1018px) {
   .subquestions__phone {
     left: -269px;

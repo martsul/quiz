@@ -419,8 +419,9 @@
                   </svg>
                 </label>
               </div>
-              <input type="text" name="name" class="subquestions__input" placeholder="Введите ваше имя">
-              <input type="tel" name="tel" class="subquestions__input" placeholder="Введите ваш номер телефона">
+              <input type="text" name="name" class="subquestions__input name-input" placeholder="Введите ваше имя">
+              <input type="tel" name="tel" class="subquestions__input input-tel"
+                placeholder="Введите ваш номер телефона">
               <label class="agree">
                 <input type="checkbox" class="agree-checkbox" name="agree">
                 <span class="agree-text">Я даю согласие на обработку моих персональных данных</span>
@@ -499,8 +500,8 @@
           <form class="present__form">
             <h4 class="present__form-title">Эти подарки закреплены<br>за вашим номером телефона</h4>
             <p class="present__form-subtitle">Если вы указали номер неправильно, можете изменить его сейчас</p>
-            <input type="text" name="name" class="present__form-input">
-            <input type="tel" name="tel" class="present__form-input" placeholder="Введите ваш номер телефона">
+            <input type="text" name="name" class="present__form-input name-input">
+            <input type="tel" name="tel" class="present__form-input input-tel" placeholder="Введите ваш номер телефона">
             <label class="agree">
               <input type="checkbox" class="agree-checkbox" name="agree">
               <span class="agree-text">Я даю согласие на обработку моих персональных данных</span>
@@ -539,8 +540,8 @@
             <p class="exit__form-text"><strong class="exit__form-strong">Проверьте номер телефона </strong>и укажите
               удобное
               время для звонка. Консультант перезвонит для согласования даты и времени выезда дизайнера</p>
-            <input type="text" name="name" class="exit__form-input">
-            <input type="tel" name="tel" class="exit__form-input" placeholder="Введите ваш номер телефона">
+            <input type="text" name="name" class="exit__form-input name-input">
+            <input type="tel" name="tel" class="exit__form-input input-tel" placeholder="Введите ваш номер телефона">
             <input type="text" name="time" class="exit__form-input" placeholder="Укажите удобное время для звонка">
             <label class="agree">
               <input type="checkbox" class="agree-checkbox" name="agree">
@@ -631,7 +632,8 @@
               </div>
             </div>
             <div class="feedback__swiper-slide swiper-slide">
-              <a href="https://www.youtube.com/watch?v=zipUb6qjOio" data-fancybox data-caption="Single image"><img src="img/res_video_2.jpg" alt="Видео" class="feedback__img"></a>
+              <a href="https://www.youtube.com/watch?v=zipUb6qjOio" data-fancybox data-caption="Single image"><img
+                  src="img/res_video_2.jpg" alt="Видео" class="feedback__img"></a>
               <div class="feedback__block">
                 <div class="feedback__name-block">
                   <p class="feedback__name">Грета Хурцилава</p>
@@ -645,7 +647,8 @@
               </div>
             </div>
             <div class="feedback__swiper-slide swiper-slide">
-              <a href="https://youtu.be/4y4Th1RaWf4" data-fancybox data-caption="Single image"><img src="img/res_video_3.jpg" alt="Видео" class="feedback__img"></a>
+              <a href="https://youtu.be/4y4Th1RaWf4" data-fancybox data-caption="Single image"><img
+                  src="img/res_video_3.jpg" alt="Видео" class="feedback__img"></a>
               <div class="feedback__block">
                 <div class="feedback__name-block">
                   <p class="feedback__name">Элина</p>
@@ -659,7 +662,8 @@
               </div>
             </div>
             <div class="feedback__swiper-slide swiper-slide">
-              <a href="https://www.youtube.com/watch?v=vvVnaFoFLwE" data-fancybox data-caption="Single image"><img src="img/res_video_4.jpg" alt="Видео" class="feedback__img"></a>
+              <a href="https://www.youtube.com/watch?v=vvVnaFoFLwE" data-fancybox data-caption="Single image"><img
+                  src="img/res_video_4.jpg" alt="Видео" class="feedback__img"></a>
               <div class="feedback__block">
                 <div class="feedback__name-block">
                   <p class="feedback__name">Светлана</p>
@@ -673,7 +677,8 @@
               </div>
             </div>
             <div class="feedback__swiper-slide swiper-slide">
-              <a href="https://www.youtube.com/watch?v=CEIaN8UqqBc" data-fancybox data-caption="Single image"><img src="img/res_video_5.jpg" alt="Видео" class="feedback__img"></a>
+              <a href="https://www.youtube.com/watch?v=CEIaN8UqqBc" data-fancybox data-caption="Single image"><img
+                  src="img/res_video_5.jpg" alt="Видео" class="feedback__img"></a>
               <div class="feedback__block">
                 <div class="feedback__name-block">
                   <p class="feedback__name">Эльвира Галкина</p>
@@ -754,6 +759,30 @@
           class="video__link" target="_blank">Написать в Whatsapp</a>
       </label>
     </section>
+    <section class="pop-on">
+      <form class="pop-on__form">
+        <button type="button" class="pop-on__close">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24" class="pop-on__close-svg">
+            <path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path>
+          </svg>
+        </button>
+        <h4 class="pop-on__title">Получите быструю профессиональную консультацию прямо сейчас</h4>
+        <p class="pop-on__text">Вы узнаете:</p>
+        <ul class="pop-on__list">
+          <li class="pop-on__list-item">— как правильно организовать пространство кухни, чтобы не уставать и экономить время;</li>
+          <li class="pop-on__list-item">— примерную стоимость, сроки изготовленияи установки кухни;</li>
+          <li class="pop-on__list-item">— секреты правильной электроразводки на кухне</li>
+        </ul>
+        <input type="text" name="name" class="pop-on__form-input name-input">
+        <input type="tel" name="tel" class="pop-on__form-input input-tel" placeholder="Введите ваш номер телефона">
+        <input type="text" name="time" class="pop-on__form-input" placeholder="Укажите удобное время для звонка">
+        <label class="agree">
+          <input type="checkbox" class="agree-checkbox" name="agree">
+          <span class="agree-text">Я даю согласие на обработку моих персональных данных</span>
+        </label>
+        <button type="submit" class="submit" disabled>Получить консультацию</button>
+      </form>
+    </section>
   </main>
   <footer class="footer">
     <div class="container">
@@ -764,7 +793,8 @@
       <a href="https://quiz24.ru/" class="footer__link footer__link-end" target="_blank">Сделано Quiz24</a>
     </div>
   </footer>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="scripts/jquery.maskedinput.min.js"></script>
   <script src="scripts/fancybox.umd.js"></script>
   <script src="scripts/swiper.js"></script>
   <script src="scripts/main.js"></script>

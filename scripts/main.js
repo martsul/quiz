@@ -1,12 +1,3 @@
-// const headerSwiper = new Swiper(".header__swiper", {
-//   loop: true,
-
-//   navigation: {
-//     nextEl: '.header__swiper-button-next',
-//     prevEl: '.header__swiper-button-prev',
-//   },
-// });
-
 const headerSwiper = new Swiper(".header__swiper", {
   loop: true,
 
@@ -90,6 +81,17 @@ const text = document.querySelectorAll(".qustions__table-parameter");
 
 let iteration = 0;
 
+let addText = (block, text, c = 1) => {
+  setTimeout(() => {
+    block.innerHTML = text.slice(0, c);
+    c++;
+
+    if (c <= text.length) {
+      addText(block, text, c);
+    }
+  }, 100);
+};
+
 formItems.forEach((el, ind) => {
   if (el.classList.contains("qustions__images")) {
     el.querySelectorAll("input").forEach((element) => {
@@ -108,8 +110,10 @@ formItems.forEach((el, ind) => {
             "iteration__point-active"
           );
 
-          text[iteration].querySelector(".gold-text").innerHTML = element.value;
-          text[iteration + 1].classList.remove("qustions__table-parameter-off")
+          let cBlock = text[iteration].querySelector(".gold-text");
+          addText(cBlock, element.value);
+
+          text[iteration + 1].classList.remove("qustions__table-parameter-off");
 
           iteration++;
 
@@ -160,8 +164,10 @@ formItems.forEach((el, ind) => {
           "iteration__point-active"
         );
 
-        text[iteration].querySelector(".gold-text").innerHTML = element.value;
-        text[iteration + 1].classList.remove("qustions__table-parameter-off")
+        let cBlock = text[iteration].querySelector(".gold-text");
+        addText(cBlock, element.value);
+
+        text[iteration + 1].classList.remove("qustions__table-parameter-off");
 
         iteration++;
 
@@ -266,7 +272,7 @@ document.querySelector(".qustions__back").addEventListener("click", () => {
 
   text[iteration].querySelector(".gold-text").innerHTML = "";
   text[iteration - 1].querySelector(".gold-text").innerHTML = "";
-  text[iteration].classList.add("qustions__table-parameter-off")
+  text[iteration].classList.add("qustions__table-parameter-off");
 
   iteration--;
 
@@ -281,154 +287,164 @@ document.querySelector(".qustions__back").addEventListener("click", () => {
 
 let canSend = [0, 0, 0, 0];
 let boolSend = false;
+let mBtn = document.querySelector(".inputs-container").querySelector(".submit");
+let mAgree = document
+  .querySelector(".inputs-container")
+  .querySelector(".agree-checkbox");
 
-let canISend = () => {
-  canSend.forEach((e) => {
-    boolSend = !!e;
-  });
+let btnActive = (arr, bool, btn, animation = false) => {
+  bool = !new Set(arr).has(0);
 
-  console.log(boolSend);
+  btn.disabled = !bool;
 
-  if (boolSend) {
-    document
-      .querySelector(".inputs-container")
-      .querySelector(".submit").disabled = false;
-    document
-      .querySelector(".inputs-container")
-      .querySelector(".submit")
-      .classList.add("submit-active");
-  } else {
-    document
-      .querySelector(".inputs-container")
-      .querySelector(".submit").disabled = true;
-    document
-      .querySelector(".inputs-container")
-      .querySelector(".submit")
-      .classList.remove("submit-active");
+  if (animation) {
+    if (bool) {
+      btn.classList.add("submit-active");
+    } else {
+      btn.classList.remove("submit-active");
+    }
   }
 };
 
 document.querySelectorAll(".subquestions__form-radio").forEach((e) => {
+  if (e.checked) {
+    canSend[0] = 1;
+  }
+});
+
+document.querySelectorAll(".subquestions__input").forEach((e) => {
+  if (e.getAttribute("type") === "tel") {
+    canSend[2] = Number(e.value.length === 18);
+  } else {
+    canSend[1] = Number(e.value.length > 0);
+  }
+});
+
+canSend[3] = Number(mAgree.checked);
+
+boolSend = !new Set(canSend).has(0);
+
+btnActive(canSend, boolSend, mBtn, true);
+
+document.querySelectorAll(".subquestions__form-radio").forEach((e) => {
   e.addEventListener("click", () => {
     canSend[0] = 1;
-
-    canISend();
+    btnActive(canSend, boolSend, mBtn, true);
   });
 });
 
-document.querySelectorAll(".subquestions__input").forEach((e, ind) => {
-  e.addEventListener("input", () => {
-    if (e.value == "") {
-      if (e.getAttribute("type") == "tel") {
-        canSend[2] = 0;
-      } else {
-        canSend[1] = 0;
-      }
-      
-      canISend();
+document.querySelectorAll(".subquestions__input").forEach((e) => {
+  e.addEventListener("keyup", () => {
+    if (e.getAttribute("type") === "tel") {
+      canSend[2] = Number(e.value.length === 18);
+
+      document.querySelectorAll(".input-tel").forEach((element) => {
+        element.value = e.value;
+      });
     } else {
-      if (e.getAttribute("type") == "tel") {
-        canSend[2] = 0;
-      } else {
-        canSend[1] = 0;
+      console.log(1);
+      canSend[1] = Number(e.value.length > 0);
+      
+      if (e.getAttribute("name") === "name") {
+        console.log(123);
+        document.querySelectorAll(".name-input").forEach(element => {
+          element.value = e.value;
+        })
       }
-
-      canISend();
     }
-  })
-})
 
-const agreeSubqustions = document.querySelector(".inputs-container").querySelector(".agree-checkbox");
+    btnActive(canSend, boolSend, mBtn, true);
+  });
+});
 
-agreeSubqustions.addEventListener("change", () => {
-  if (agreeSubqustions.checked) {
-    canSend[3] = 1;
-  } else {
-    canSend[3] = 0;
-  }
-  canISend();
-})
+mAgree.addEventListener("change", () => {
+  canSend[3] = Number(mAgree.checked);
+  btnActive(canSend, boolSend, mBtn, true);
 
-document.querySelector(".inputs-container").querySelector(".submit").addEventListener("click", event => {
-  event.preventDefault();
+  document.querySelectorAll(".agree-checkbox").forEach((element) => {
+    element.checked = mAgree.checked;
+  });
+});
 
-  document.querySelector(".lock").classList.remove("lock__animation");
-  document.querySelector(".thanks").classList.remove("thanks-off");
-  document.querySelector(".results").classList.remove("results-off");
-  document.querySelector(".present").classList.remove("present-off");
-  document.querySelector(".banner").classList.remove("banner-off");
-  document.querySelector(".exit").classList.remove("exit-off");
-  document.querySelector(".work").classList.remove("work-off");
-  document.querySelector(".example").classList.remove("example-off");
-  document.querySelector(".quality").classList.remove("quality-off");
-  document.querySelector(".feedback").classList.remove("feedback-off");
-  document.querySelector(".youtube").classList.remove("youtube-off");
-  document.querySelector(".other").classList.remove("other-off");
-})
+document
+  .querySelector(".inputs-container")
+  .querySelector(".submit")
+  .addEventListener("click", (event) => {
+    event.preventDefault();
+
+    document.querySelector(".subquestions__form").setAttribute("style", "display: none;")
+    document.querySelector(".lock").classList.remove("lock__animation");
+    document.querySelector(".thanks").classList.remove("thanks-off");
+    document.querySelector(".results").classList.remove("results-off");
+    document.querySelector(".present").classList.remove("present-off");
+    document.querySelector(".banner").classList.remove("banner-off");
+    document.querySelector(".exit").classList.remove("exit-off");
+    document.querySelector(".work").classList.remove("work-off");
+    document.querySelector(".example").classList.remove("example-off");
+    document.querySelector(".quality").classList.remove("quality-off");
+    document.querySelector(".feedback").classList.remove("feedback-off");
+    document.querySelector(".youtube").classList.remove("youtube-off");
+    document.querySelector(".other").classList.remove("other-off");
+  });
 
 // Present Form
 
 const pForm = document.querySelector(".present__form");
 
 let pFormTrue = [0, 0];
+let pBool = false;
+let pBtn = pForm.querySelector(".submit");
+let pAgree = pForm.querySelector(".agree-checkbox");
+
+pFormTrue[1] = Number(pAgree.checked);
 
 document.querySelectorAll(".present__form-input").forEach(e => {
-  e.addEventListener("input", () => {
-    if (e.value == "") {
-      pFormTrue[0] = 0
-    } else {
-      pFormTrue[0] = 1
-    }
-    if (pFormTrue[0] == 1 && pFormTrue[1] == 1) {
-      pForm.querySelector(".submit").disabled = false
-    } else {
-      pForm.querySelector(".submit").disabled = true
-    }
-  })
-})
+  if (e.getAttribute("type") === "tel") {
+    e.addEventListener("keyup", () => {
+      pFormTrue[0] = Number(e.value.length === 18);
 
-pForm.querySelector(".agree-checkbox").addEventListener("change", () => {
-  pFormTrue[1] = Boolean(pForm.querySelector(".agree-checkbox").checked)
-  if (pFormTrue[0] == 1 && pFormTrue[1] == 1) {
-    pForm.querySelector(".submit").disabled = false
-  } else {
-    pForm.querySelector(".submit").disabled = true
+      btnActive(pFormTrue, pBool, pBtn);
+    })
   }
 })
 
+pAgree.addEventListener("change", () => {
+  pFormTrue[1] = Number(pAgree.checked);
+
+  btnActive(pFormTrue, pBool, pBtn);
+})
 
 // Exit Form
 
 const eForm = document.querySelector(".exit__form");
 
 let eFormTrue = [0, 0];
+let eBool = false;
+let eBtn = eForm.querySelector(".submit");
+let eAgree = eForm.querySelector(".agree-checkbox");
+
+eFormTrue[1] = Number(eAgree.checked);
 
 document.querySelectorAll(".exit__form-input").forEach(e => {
-  if (e.getAttribute("type") == "tel") {
-    e.addEventListener("input", () => {
-      if (e.value == "") {
-        eFormTrue[0] = 0
-      } else {
-        eFormTrue[0] = 1
-      }
-      if (eFormTrue[0] == 1 && eFormTrue[1] == 1) {
-        eForm.querySelector(".submit").disabled = false
-      } else {
-        eForm.querySelector(".submit").disabled = true
-      }
+  if (e.getAttribute("type") === "tel") {
+    e.addEventListener("keyup", () => {
+      eFormTrue[0] = Number(e.value.length === 18);
+
+      btnActive(eFormTrue, eBool, eBtn);
     })
   }
 })
 
-eForm.querySelector(".agree-checkbox").addEventListener("change", () => {
-  eFormTrue[1] = Boolean(eForm.querySelector(".agree-checkbox").checked)
-  if (eFormTrue[0] == 1 && eFormTrue[1] == 1) {
-    eForm.querySelector(".submit").disabled = false
-  } else {
-    eForm.querySelector(".submit").disabled = true
-  }
+eAgree.addEventListener("change", () => {
+  eFormTrue[1] = Number(eAgree.checked);
+
+  btnActive(eFormTrue, eBool, eBtn);
 })
 
-Fancybox.bind("[data-fancybox]", {
-  
-});
+// Zoom
+
+Fancybox.bind("[data-fancybox]", {});
+
+// Masks
+
+$(".input-tel").mask("+7 (999) 999-99-99");
