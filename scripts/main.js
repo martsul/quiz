@@ -62,7 +62,6 @@ document
       radioForVideo.checked = false;
       document.querySelector(".video__item").muted = !radioForVideo.checked;
     } else {
-      console.log("true");
       document.querySelector(".video").setAttribute("style", "display: none;");
       document.querySelector(".video__item").muted = !radioForVideo.checked;
     }
@@ -151,6 +150,7 @@ formItems.forEach((el, ind) => {
 
     el.querySelector(".qustions__card-radio").addEventListener("click", () => {
       if (iteration !== formItems.length - 1) {
+        document.querySelector(".qustions__input").value = "Не знаю";
         formItems[iteration].classList.remove("qustions__item-on");
         formItems[iteration + 1].classList.add("qustions__item-on");
 
@@ -177,6 +177,8 @@ formItems.forEach((el, ind) => {
             .classList.add("qustions__back-on");
         }
       } else {
+        document.querySelector(".qustions__input").value = "Не знаю";
+
         titles[iteration].classList.remove("qustions__title-on");
         document
           .querySelector(".qustions__back")
@@ -342,14 +344,12 @@ document.querySelectorAll(".subquestions__input").forEach((e) => {
         element.value = e.value;
       });
     } else {
-      console.log(1);
       canSend[1] = Number(e.value.length > 0);
-      
+
       if (e.getAttribute("name") === "name") {
-        console.log(123);
-        document.querySelectorAll(".name-input").forEach(element => {
+        document.querySelectorAll(".name-input").forEach((element) => {
           element.value = e.value;
-        })
+        });
       }
     }
 
@@ -366,26 +366,23 @@ mAgree.addEventListener("change", () => {
   });
 });
 
-document
-  .querySelector(".inputs-container")
-  .querySelector(".submit")
-  .addEventListener("click", (event) => {
-    event.preventDefault();
-
-    document.querySelector(".subquestions__form").setAttribute("style", "display: none;")
-    document.querySelector(".lock").classList.remove("lock__animation");
-    document.querySelector(".thanks").classList.remove("thanks-off");
-    document.querySelector(".results").classList.remove("results-off");
-    document.querySelector(".present").classList.remove("present-off");
-    document.querySelector(".banner").classList.remove("banner-off");
-    document.querySelector(".exit").classList.remove("exit-off");
-    document.querySelector(".work").classList.remove("work-off");
-    document.querySelector(".example").classList.remove("example-off");
-    document.querySelector(".quality").classList.remove("quality-off");
-    document.querySelector(".feedback").classList.remove("feedback-off");
-    document.querySelector(".youtube").classList.remove("youtube-off");
-    document.querySelector(".other").classList.remove("other-off");
-  });
+mBtn.addEventListener("click", (event) => {
+  document
+    .querySelector(".subquestions__form")
+    .setAttribute("style", "display: none;");
+  document.querySelector(".lock").classList.remove("lock__animation");
+  document.querySelector(".thanks").classList.remove("thanks-off");
+  document.querySelector(".results").classList.remove("results-off");
+  document.querySelector(".present").classList.remove("present-off");
+  document.querySelector(".banner").classList.remove("banner-off");
+  document.querySelector(".exit").classList.remove("exit-off");
+  document.querySelector(".work").classList.remove("work-off");
+  document.querySelector(".example").classList.remove("example-off");
+  document.querySelector(".quality").classList.remove("quality-off");
+  document.querySelector(".feedback").classList.remove("feedback-off");
+  document.querySelector(".youtube").classList.remove("youtube-off");
+  document.querySelector(".other").classList.remove("other-off");
+});
 
 // Present Form
 
@@ -398,21 +395,21 @@ let pAgree = pForm.querySelector(".agree-checkbox");
 
 pFormTrue[1] = Number(pAgree.checked);
 
-document.querySelectorAll(".present__form-input").forEach(e => {
+document.querySelectorAll(".present__form-input").forEach((e) => {
   if (e.getAttribute("type") === "tel") {
     e.addEventListener("keyup", () => {
       pFormTrue[0] = Number(e.value.length === 18);
 
       btnActive(pFormTrue, pBool, pBtn);
-    })
+    });
   }
-})
+});
 
 pAgree.addEventListener("change", () => {
   pFormTrue[1] = Number(pAgree.checked);
 
   btnActive(pFormTrue, pBool, pBtn);
-})
+});
 
 // Exit Form
 
@@ -425,21 +422,48 @@ let eAgree = eForm.querySelector(".agree-checkbox");
 
 eFormTrue[1] = Number(eAgree.checked);
 
-document.querySelectorAll(".exit__form-input").forEach(e => {
+document.querySelectorAll(".exit__form-input").forEach((e) => {
   if (e.getAttribute("type") === "tel") {
     e.addEventListener("keyup", () => {
       eFormTrue[0] = Number(e.value.length === 18);
 
       btnActive(eFormTrue, eBool, eBtn);
-    })
+    });
   }
-})
+});
 
 eAgree.addEventListener("change", () => {
   eFormTrue[1] = Number(eAgree.checked);
 
   btnActive(eFormTrue, eBool, eBtn);
-})
+});
+
+// POP-ON form
+
+const popForm = document.querySelector(".pop-on__form");
+
+let popFormTrue = [0, 0];
+let popBool = false;
+let popBtn = popForm.querySelector(".submit");
+let popAgree = popForm.querySelector(".agree-checkbox");
+
+popFormTrue[1] = Number(popAgree.checked);
+
+document.querySelectorAll(".pop-on__form-input").forEach((e) => {
+  if (e.getAttribute("type") === "tel") {
+    e.addEventListener("keyup", () => {
+      popFormTrue[0] = Number(e.value.length === 18);
+
+      btnActive(popFormTrue, popBool, popBtn);
+    });
+  }
+});
+
+popAgree.addEventListener("change", () => {
+  popFormTrue[1] = Number(popAgree.checked);
+
+  btnActive(popFormTrue, popBool, popBtn);
+});
 
 // Zoom
 
@@ -448,3 +472,153 @@ Fancybox.bind("[data-fancybox]", {});
 // Masks
 
 $(".input-tel").mask("+7 (999) 999-99-99");
+
+// POP-ON
+
+document.querySelector(".menu__btn").addEventListener("click", () => {
+  document.querySelector(".pop-on").classList.toggle("pop-on-on");
+  document.body.classList.toggle("body-pop");
+});
+
+document.querySelector(".pop-on__close").addEventListener("click", () => {
+  document.querySelector(".pop-on").classList.remove("pop-on-on");
+  document.body.classList.remove("body-pop");
+});
+
+document.body.addEventListener("click", (event) => {
+  if (event.target.classList.contains("pop-on")) {
+    document.querySelector(".pop-on").classList.remove("pop-on-on");
+    document.body.classList.remove("body-pop");
+  }
+});
+
+// POP-THANKS
+
+document.querySelector(".pop-thanks__close").addEventListener("click", () => {
+  document.querySelector(".pop-thanks").classList.remove("pop-on-on");
+  document.body.classList.remove("body-pop");
+});
+
+document.body.addEventListener("click", (event) => {
+  if (event.target.classList.contains("pop-thanks")) {
+    document.querySelector(".pop-thanks").classList.remove("pop-on-on");
+    document.body.classList.remove("body-pop");
+  }
+});
+
+// To php
+
+let userID = Math.round(Math.random() * 10000);
+
+const mainForm = document.querySelector(".subquestions__form");
+
+mainForm.addEventListener("submit", mainFormSand);
+
+async function mainFormSand(event) {
+  event.preventDefault();
+
+  const mainFormData = new FormData(mainForm);
+  let cText = document.querySelector(".qustions__input").value;
+  let nameWithId = `${mainFormData.get("name")} id(${userID})`;
+
+  mainFormData.append("PM", cText);
+  mainFormData.append("name", nameWithId);
+
+  let response = await fetch("php/mail.php", {
+    method: "POST",
+    body: mainFormData,
+    mode: "no-cors",
+  });
+
+  if (response.ok) {
+    console.log("Main Email was send");
+  } else {
+    console.log("Main Email Has ERROR!");
+  }
+}
+
+const presentForm = document.querySelector(".present__form");
+
+presentForm.addEventListener("submit", presentFormSand);
+
+async function presentFormSand(event) {
+  event.preventDefault();
+
+  const presentFormData = new FormData(presentForm);
+  let cText = document.querySelector(".qustions__input").value;
+  let nameWithId = `${presentFormData.get("name")} id(${userID})`;
+
+  presentFormData.append("PM", cText);
+  presentFormData.append("name", nameWithId);
+
+  let response = await fetch("php/mail.php", {
+    method: "POST",
+    body: presentFormData,
+    mode: "no-cors",
+  });
+
+  if (response.ok) {
+    document.querySelector(".pop-thanks").classList.toggle("pop-on-on");
+    document.body.classList.toggle("body-pop");
+    console.log("Present Email was send");
+  } else {
+    console.log("Present Email Has ERROR!");
+  }
+}
+
+const exitForm = document.querySelector(".exit__form");
+
+exitForm.addEventListener("submit", exitFormSand);
+
+async function exitFormSand(event) {
+  event.preventDefault();
+
+  const exitFormData = new FormData(exitForm);
+  let cText = document.querySelector(".qustions__input").value;
+  let nameWithId = `${exitFormData.get("name")} id(${userID})`;
+
+  exitFormData.append("PM", cText);
+  exitFormData.append("name", nameWithId);
+
+  let response = await fetch("php/mail.php", {
+    method: "POST",
+    body: exitFormData,
+    mode: "no-cors",
+  });
+
+  if (response.ok) {
+    document.querySelector(".pop-thanks").classList.toggle("pop-on-on");
+    document.body.classList.toggle("body-pop");
+    console.log("Exit Email was send");
+  } else {
+    console.log("Exit Email Has ERROR!");
+  }
+}
+
+
+popForm.addEventListener("submit", popFormSand);
+
+async function popFormSand(event) {
+  event.preventDefault();
+
+  const popFormData = new FormData(popForm);
+  let cText = document.querySelector(".qustions__input").value;
+  let nameWithId = `${popFormData.get("name")} id(${userID})`;
+
+  popFormData.append("PM", cText);
+  popFormData.append("name", nameWithId);
+
+  let response = await fetch("php/mail.php", {
+    method: "POST",
+    body: popFormData,
+    mode: "no-cors",
+  });
+
+  if (response.ok) {
+    document.querySelector(".pop-on").classList.remove("pop-on-on");
+    document.querySelector(".pop-thanks").classList.toggle("pop-on-on");
+    console.log("Pop Email was send");
+  } else {
+    console.log("Pop Email Has ERROR!");
+  }
+}
