@@ -50,14 +50,19 @@ input[type="radio"], input[type="checkbox"] {
 .header__menu {
   height: 60px;
   background: #fff;
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 20;
   padding: 0 16px;
   display: none;
   justify-content: space-between;
   align-items: center;
+}
+
+.header__menu-off {
+  opacity: 0;
+  z-index: inherit;
 }
 
 .menu__logo {
@@ -156,6 +161,10 @@ input[type="radio"], input[type="checkbox"] {
 
 .header__swiper-button-next {
   right: 80px;
+}
+
+.header__swiper-pagination {
+  display: none;
 }
 
 .header__logo-container {
@@ -2392,6 +2401,10 @@ input[type="radio"], input[type="checkbox"] {
     display: flex;
   }
 
+  .iteration__point-active::after {
+    height: 9px;
+  }
+
   .header__logo-container {
     background-color: #DBDBDB;
     display: flex;
@@ -2404,7 +2417,7 @@ input[type="radio"], input[type="checkbox"] {
     border-radius: 10px;
     width: auto;
     left: 15px;
-    bottom: 15px;
+    bottom: 35px;
     transform: none;
   }
 
@@ -2413,7 +2426,7 @@ input[type="radio"], input[type="checkbox"] {
   }
 
   .header__container {
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
 
   .header__logo-container-text {
@@ -2429,11 +2442,17 @@ input[type="radio"], input[type="checkbox"] {
   }
 
   .header__swiper {
-    height: 180px;
+    height: 200px;
+    padding-bottom: 20px;
   }
 
   .header__swiper-img {
     height: 100%;
+  }
+
+  .header__swiper .header__swiper-pagination {
+    display: block;
+    bottom: 0;
   }
 
   .header__block-text {

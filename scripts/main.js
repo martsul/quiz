@@ -9,6 +9,10 @@ const headerSwiper = new Swiper(".header__swiper", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+
+  pagination: {
+    el: ".swiper-pagination",
+  },
 });
 
 const workSwiper = new Swiper(".work__swiper", {
@@ -77,6 +81,7 @@ const formItems = document.querySelectorAll(".qustions__item");
 const titles = document.querySelectorAll(".qustions__title");
 const point = document.querySelectorAll(".iteration__point");
 const text = document.querySelectorAll(".qustions__table-parameter");
+const resultsText = document.querySelectorAll(".results__point");
 
 let iteration = 0;
 
@@ -114,6 +119,9 @@ formItems.forEach((el, ind) => {
 
           text[iteration + 1].classList.remove("qustions__table-parameter-off");
 
+          resultsText[iteration].querySelector(".gold-text").innerHTML =
+            element.value;
+
           iteration++;
 
           if (iteration !== 0) {
@@ -126,6 +134,9 @@ formItems.forEach((el, ind) => {
           document
             .querySelector(".qustions__back")
             .classList.remove("qustions__back-on");
+
+          resultsText[iteration].querySelector(".gold-text").innerHTML =
+            element.value;
 
           document
             .querySelector(".subquestions-block")
@@ -167,6 +178,9 @@ formItems.forEach((el, ind) => {
         let cBlock = text[iteration].querySelector(".gold-text");
         addText(cBlock, element.value);
 
+        resultsText[iteration].querySelector(".gold-text").innerHTML =
+          el.querySelector(".qustions__card-radio").value;
+
         text[iteration + 1].classList.remove("qustions__table-parameter-off");
 
         iteration++;
@@ -178,6 +192,9 @@ formItems.forEach((el, ind) => {
         }
       } else {
         document.querySelector(".qustions__input").value = "Не знаю";
+
+        resultsText[iteration].querySelector(".gold-text").innerHTML =
+          el.querySelector(".qustions__card-radio").value;
 
         titles[iteration].classList.remove("qustions__title-on");
         document
@@ -207,6 +224,9 @@ formItems.forEach((el, ind) => {
         formItems[iteration].classList.remove("qustions__item-on");
         formItems[iteration + 1].classList.add("qustions__item-on");
 
+        resultsText[iteration].querySelector(".gold-text").innerHTML =
+          document.querySelector(".qustions__input").value;
+
         titles[iteration].classList.remove("qustions__title-on");
         titles[iteration + 1].classList.add("qustions__title-on");
 
@@ -229,6 +249,9 @@ formItems.forEach((el, ind) => {
         document
           .querySelector(".qustions__back")
           .classList.remove("qustions__back-on");
+
+        resultsText[iteration].querySelector(".gold-text").innerHTML =
+          document.querySelector(".qustions__input").value;
 
         document
           .querySelector(".subquestions-block")
@@ -595,7 +618,6 @@ async function exitFormSand(event) {
   }
 }
 
-
 popForm.addEventListener("submit", popFormSand);
 
 async function popFormSand(event) {
@@ -622,3 +644,28 @@ async function popFormSand(event) {
     console.log("Pop Email Has ERROR!");
   }
 }
+
+// Header opacity
+
+if (window.pageYOffset === 0) {
+  document.querySelector(".header__menu").classList.add("header__menu-off");
+} else {
+  document.querySelector(".header__menu").classList.remove("header__menu-off");
+}
+
+window.addEventListener("scroll", (event) => {
+  if (window.pageYOffset === 0) {
+    document.querySelector(".header__menu").classList.add("header__menu-off");
+  } else {
+    if (
+      document.querySelector(".header__menu").getBoundingClientRect().bottom >=
+      document.querySelector(".header").getBoundingClientRect().bottom
+    ) {
+      document.querySelector(".header__menu").classList.add("header__menu-off");
+    } else {
+      document
+        .querySelector(".header__menu")
+        .classList.remove("header__menu-off");
+    }
+  }
+});
